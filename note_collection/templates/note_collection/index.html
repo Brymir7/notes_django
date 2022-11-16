@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>BrymirNotes</title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="{% static 'note_collection/reset.css' %}"/>
+        <link rel="stylesheet" href="{% static 'note_collection/style.css' %}"/>
+    </head>
+    <body>
+        <div class="firstflex">
+            <div class="firstcontent">
+                <div class="header">
+                    <div class="header-logo">
+                        <a href="">฿ Ɽ Ɏ ₥ ł Ɽ</a>
+                    </div>
+                    <div class="header-nav">
+                        <li>
+                            <a href="">Notes</a>
+                        </li>
+                        <li class="selector">||</li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li class="selector">||</li>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                        <li class="selector">||</li>
+                        <li>
+                            <a href="#">Sources</a>
+                        </li>
+                        <li class="selector">||</li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="notes-collection">
+                {% if note_collection %}
+                    {% for note in note_collection %}
+                        <a href="{% url 'note-update' note.id %}">
+                            <article class="card">
+                                <h3 class="note-title">{{ note.note_name }}</h3>
+                                <p>{{ note.note_text }}</p>
+                                <time>
+                                    {{ note.pub_date }}
+                                </time>
+                            </article>
+                        </a>
+                    {% endfor %}
+                {% else %}
+                    <p>No notes right now.</p>
+                {% endif %}
+            </div>
+            <div class="calendar">
+                {% if months %}
+                    {% for month in months %}
+                        <h4>{{ month.month_name }}</h4>
+                        <div class="month">
+                            {% for day in month.days.all %}
+                                <div class="day">
+                                    <a class="day-header" href="{% url 'day-update' day.id %}">
+                                        <h3>{{ day.day_name }}</h3>
+                                        <div class="bar"></div>
+                                        <p>{{ day.day_text }}</p>
+                                    </a>
+                                    <div class="day-notes">
+                                        {% for note in day.attached_notes.all %}
+                                            <a href="{% url 'note-update' note.id %}">
+                                                <div class="day-note">
+                                                    <h3>{{ note.note_name }}</h3>
+                                                </div>
+                                            </a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No Month right now.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="buttons-for-notes">
+            <div>
+                <a href="{% url 'note-create' %}">Add</a>
+            </div>
+        </div>
+    </body>
+</html>

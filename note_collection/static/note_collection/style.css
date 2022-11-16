@@ -1,0 +1,193 @@
+.firstcontent {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 3%;
+    padding-top: 2%;
+    background: darkcyan;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid white;
+    padding-bottom: 0.25%;
+    gap: 30em;
+}
+
+.header a:link {
+    text-decoration: none;
+    color: #F9FAF8;
+}
+
+.header a:visited {
+    text-decoration: none;
+    color: #F9FAF8;
+}
+
+.header-nav {
+    display: flex;
+    font-size: 30px;
+    list-style: none;
+    gap: 3%;
+    justify-content: center;
+
+}
+
+.header-logo {
+    font-size: 38px;
+    color: #F9FAF8;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    background-color: lightcyan;
+}
+
+.main-content a:link {
+    text-decoration: none;
+    color: #000000;
+}
+
+.main-content a:link:after {
+    text-decoration: none;
+    color: #000000;
+}
+
+.notes-collection {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    align-items: flex-start;
+}
+
+.main-content>* {
+    max-height: calc(100vh - 200px);
+    overflow-y: scroll;
+    padding: 2em;
+}
+
+
+.calendar {
+    background-color: lightcyan;
+    overflow-x: hidden;
+}
+.month {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 80px 30px;
+    flex-grow: 1 1 0;
+    
+}
+.day{
+    border: 6px solid rgb(69, 169, 236);
+    border-radius: 7px;
+    background: white;
+    width: 350px;
+    height: 250px;
+    
+}
+
+.note-title{
+    border-bottom: 2px solid rgb(25, 11, 107);
+    font-size: 2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.bar{
+    border: 5px solid deepskyblue;
+    width: 338px;    
+}
+.day-header > h3 {
+    font-size:  30px;
+    position: relative;
+    left: 150px;
+}
+.day-header > p {
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 10px;
+    padding-left: 3px;
+    padding-bottom: 40px;
+}
+.day-note {
+    border: 6px solid rgb(69, 169, 236);
+    background: white;
+    position: relative;
+    border-radius: 4px;
+    left: -5px;
+    width: 250px;
+    height: 50px;
+}
+
+.day-note > * {
+    font-size: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.day-note:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgb(25, 11, 107);
+}
+
+.card {
+    border: 6px solid rgb(69, 169, 236);
+    border-radius: 7px;
+    background: white;
+    width: 350px;
+    height: 150px;
+}
+
+.card>h3 {
+    font-size: 2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card > time {
+    position: relative;
+    bottom: 0;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgb(25, 11, 107);
+}
+
+
+
+h4 {
+    position: relative;
+    left: 540px;
+    font-size: 40px;
+    padding-bottom: 20px;   
+}
+
+.card>p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.buttons-for-notes {
+    display: flex;
+    flex-direction: row;
+    margin-left: 8px;
+    margin-top: 5px;
+}
+
+.buttons-for-notes div {
+    margin-left: 10px;
+    border: 5px solid darkcyan;
+    display: flex;
+    justify-content: center;
+}
